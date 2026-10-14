@@ -1,0 +1,150 @@
+/* ==========================================================
+   DON Game Store - style.css
+   Dipakai oleh: resources/views/welcome.blade.php
+   ========================================================== */
+
+/* ---------- Variabel warna (ubah di sini saja) ---------- */
+:root {
+    --bg: #12131c;
+    --line: #262833;
+    --ink: #eceef5;
+    --muted: #9ca3b4;
+    --accent: #6ee7b7;      /* hijau mint */
+    --accent-ink: #0b1a14;  /* teks di atas tombol mint */
+}
+
+/* ---------- Reset & dasar ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+
+a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+/* ---------- Kontainer: header, main, footer sejajar ---------- */
+.container {
+    width: 100%;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+}
+
+.brand { display: flex; align-items: center; }
+
+.logo {
+    height: 44px;
+    width: auto;
+    display: block;
+}
+
+.nav { display: flex; align-items: center; gap: 24px; font-size: 0.9375rem; }
+
+.nav a { color: var(--muted); transition: color .15s; }
+.nav a:hover { color: var(--ink); }
+
+.nav .nav-cta {
+    background: var(--accent);
+    color: var(--accent-ink);
+    padding: 8px 20px;
+    border-radius: 999px;
+    font-weight: 700;
+}
+.nav .nav-cta:hover { color: var(--accent-ink); filter: brightness(1.08); }
+
+/* ---------- Konten utama (hero) ---------- */
+.hero {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 56px;
+    padding-bottom: 56px;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 5.5vw, 3.75rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    max-width: 20ch;
+    color: var(--accent);
+}
+
+.hero .lead {
+    margin-top: 20px;
+    max-width: 46ch;
+    font-size: 1.0625rem;
+    color: var(--muted);
+}
+
+/* ---------- Tombol ---------- */
+.actions {
+    margin-top: 36px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--ink);
+    transition: border-color .15s, filter .15s;
+}
+.btn:hover { border-color: var(--accent); }
+
+.btn-primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-ink);
+    font-weight: 700;
+}
+.btn-primary:hover { filter: brightness(1.08); }
+
+/* ---------- Footer ---------- */
+.site-footer {
+    padding-top: 24px;
+    padding-bottom: 32px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.875rem;
+}
+
+/* ---------- Layar kecil (HP) ---------- */
+@media (max-width: 560px) {
+    .container { padding-left: 16px; padding-right: 16px; }
+    .logo { height: 36px; }
+    .nav { gap: 14px; font-size: 0.875rem; }
+    .nav .nav-cta { padding: 7px 16px; }
+    .hero { padding-top: 40px; padding-bottom: 40px; }
+    .actions .btn { flex: 1; text-align: center; padding-left: 16px; padding-right: 16px; }
+}
